@@ -1,21 +1,58 @@
-<!--The content below is only a placeholder and can be replaced.-->
-<div style="text-align:center">
-  <h1>
-    Welcome to {{ title }}!
-  </h1>
-  <img width="300" alt="Angular Logo" src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNTAgMjUwIj4KICAgIDxwYXRoIGZpbGw9IiNERDAwMzEiIGQ9Ik0xMjUgMzBMMzEuOSA2My4ybDE0LjIgMTIzLjFMMTI1IDIzMGw3OC45LTQzLjcgMTQuMi0xMjMuMXoiIC8+CiAgICA8cGF0aCBmaWxsPSIjQzMwMDJGIiBkPSJNMTI1IDMwdjIyLjItLjFWMjMwbDc4LjktNDMuNyAxNC4yLTEyMy4xTDEyNSAzMHoiIC8+CiAgICA8cGF0aCAgZmlsbD0iI0ZGRkZGRiIgZD0iTTEyNSA1Mi4xTDY2LjggMTgyLjZoMjEuN2wxMS43LTI5LjJoNDkuNGwxMS43IDI5LjJIMTgzTDEyNSA1Mi4xem0xNyA4My4zaC0zNGwxNy00MC45IDE3IDQwLjl6IiAvPgogIDwvc3ZnPg==">
-</div>
-<h2>Here are some links to help you start: </h2>
-<ul>
-  <li>
-    <h2><a target="_blank" rel="noopener" href="https://angular.io/tutorial">Tour of Heroes</a></h2>
-  </li>
-  <li>
-    <h2><a target="_blank" rel="noopener" href="https://angular.io/cli">CLI Documentation</a></h2>
-  </li>
-  <li>
-    <h2><a target="_blank" rel="noopener" href="https://blog.angular.io/">Angular blog</a></h2>
-  </li>
-</ul>
+<div class = "mainContainer" >
+  <div style="text-align: center">只有肉的厨房</div>
+  <hr>
+  <div>选择原料</div>
+  <div class="row" style="margin-top: 5px">
+    <div class="col">
+      <button class="btn-outline-dark" (click)="addItem('chicken')" style="margin-right: 5px">鸡肉</button>
+      <span>{{ meatNum[0] }}</span>
+    </div>
+    <div class="col">
+      <button class="btn-outline-dark" (click)="addItem('beef')" style="margin-right: 5px">牛肉</button>
+      <span>{{ meatNum[1] }}</span>
+    </div>
+    <div class="col">
+      <button class="btn-outline-dark" (click)="addItem('pork')" style="margin-right: 5px">猪肉</button>
+      <span>{{ meatNum[2] }}</span>
+    </div>
+  </div>
+  <div class="row" style="margin-top: 5px">
+    <div class="col">
+      <button class="btn-outline-dark" (click)="addItem('duck')" style="margin-right: 5px">鸭子</button>
+      <span>{{ meatNum[3] }}</span>
+    </div>
+    <div class="col">
+      <button class="btn-outline-dark" (click)="addItem('lamb')" style="margin-right: 5px">羊肉</button>
+      <span>{{ meatNum[4] }}</span>
+    </div>
+    <div class="col">
+      <button class="btn-outline-dark" (click)="addItem('shrimp')" style="margin-right: 5px">大虾</button>
+      <span>{{ meatNum[5] }}</span>
+    </div>
+  </div>
+  <hr>
+  <div>
+    <p>请加配料</p>
+    <input type="text" [(ngModel)]="vegetables">
+    <button class="btn-outline-dark" (click)="addVegetables()">ADD</button>
+    <div *ngIf="vegAdded">成功加入: {{ vegetables }}</div>
+  </div>
 
-<router-outlet></router-outlet>
+  <hr>
+  <div>
+    <button class="btn-outline-dark" (click)="resetItem()">Reset</button>
+  </div>
+  <div style="margin-top: 5px">
+    <button class="btn-outline-dark" (click)="makeCook()">Cook the meal</button>
+  </div>
+  <div *ngIf="cooked">你做出了：{{ mealName }}</div>
+</div>
+
+
+
+
+
+
+
+
+
